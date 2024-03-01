@@ -1,0 +1,158 @@
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  
+  margin: 0;
+  background-color: #f5f5f5;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1440px;
+
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: #ddd;
+  border-radius: 0.5rem;
+
+  &:hover {
+    cursor: pointer;
+
+    background-color: #ccc;
+  }
+
+  &:active {
+    background-color: #bbb;
+  }
+
+  &:focus, &:focus-visible {
+    outline: 2px solid #23272e;
+  }
+}
+
+.switch {
+  width: 32px;
+  height: 20px;
+
+  display: inline-block;
+
+  position: relative;
+  
+  background-color: #ccc;
+  border-radius: 999px;
+
+  transition: background-color 0.15s ease;
+
+  input[type=checkbox] {
+    width: 0;
+    height: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus-within {
+    outline: 2px solid #23272e;
+  }
+
+  &:has(input:checked) {
+    background-color: #0e9ffc;
+
+    &::after {
+      transform: translate(90%, 2px);
+    }
+  }
+
+  &::after {
+    content: "";
+
+    width: 16px;
+    height: 16px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0,0,0,0.15);
+
+    transform: translate(10%, 2px);
+
+    transition: transform 0.1s ease-in;
+  }
+}
+
+.radio {
+  width: 14px;
+  height: 14px;
+
+  position: relative;
+
+  display: inline-block;
+
+  margin: 3px 5px 0;
+
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #aaa;
+
+  input[type=radio] {
+    width: 0;
+    height: 0;
+  }
+
+  &:has(input:checked) {
+    box-shadow: 0 0 0 1px #0e9ffc;
+
+    &::before {
+      display: block;
+    }
+  }
+
+  &::before {
+    content: "";
+
+    width: 10px;
+    height: 10px;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: none;
+
+    background-color: #0e9ffc;
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  &:focus-within {
+    outline: 2px solid #23272e;
+  }
+}
